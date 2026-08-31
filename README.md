@@ -39,6 +39,7 @@ museum_docent_robot/
 ├── CMakeLists.txt
 ├── package.xml
 └── README.md
+```
 
 ## Main Nodes
 
