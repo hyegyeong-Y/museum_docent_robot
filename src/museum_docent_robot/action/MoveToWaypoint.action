@@ -1,0 +1,7 @@
+string waypoint
+---
+bool success
+string message
+string reached_waypoint
+---
+string status

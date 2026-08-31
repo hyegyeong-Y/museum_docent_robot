@@ -1,0 +1,4 @@
+string artwork_id
+---
+string description
+bool success

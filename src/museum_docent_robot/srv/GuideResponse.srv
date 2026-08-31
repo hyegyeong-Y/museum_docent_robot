@@ -1,0 +1,4 @@
+bool guide
+string artwork_id
+---
+bool accepted
