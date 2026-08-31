@@ -20,6 +20,26 @@ flowchart LR
     State -->|/robot_state| Main
 ```
 
+## Project Structure
+
+```text
+museum_docent_robot/
+├── action/
+│   └── MoveToWaypoint.action
+├── srv/
+│   ├── SetRobotState.srv
+│   ├── GuideResponse.srv
+│   └── ArtworkDescription.srv
+├── src/
+│   ├── main_controller.cpp
+│   ├── state_manager.cpp
+│   ├── movement.cpp
+│   ├── artwork_info.cpp
+│   └── error_handler.cpp
+├── CMakeLists.txt
+├── package.xml
+└── README.md
+
 ## Main Nodes
 
 | Node | Role |
