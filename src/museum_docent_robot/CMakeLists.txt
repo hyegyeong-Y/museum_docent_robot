@@ -11,6 +11,11 @@ find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_srvs REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(ament_index_cpp REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetRobotState.srv"
@@ -51,6 +56,16 @@ ament_target_dependencies(error_handler
   rclcpp
   rclcpp_action
   std_srvs
+  std_msgs
+)
+
+ament_target_dependencies(movement
+  rclcpp
+  rclcpp_action
+  nav2_msgs
+  geometry_msgs
+  tf2
+  ament_index_cpp
 )
 
 rosidl_get_typesupport_target(cpp_typesupport_target
@@ -63,6 +78,7 @@ target_link_libraries(state_manager
 )
 target_link_libraries(movement
   "${cpp_typesupport_target}"
+  yaml-cpp
 )
 target_link_libraries(main_controller
   "${cpp_typesupport_target}"
@@ -81,6 +97,11 @@ install(TARGETS
   artwork_info
   error_handler
   DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
